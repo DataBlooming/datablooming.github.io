@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-bg: #f8f9fa;
+            --secondary-bg: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --highlight: #0062a3;
+            --font-mono: 'SF Mono', 'Fira Code', monospace;
+            --font-sans: 'Calibre', 'Inter', sans-serif;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.5;
+            font-size: 14px;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+            padding-left: 100px;
+        }
+        
+        /* 左侧边栏 */
+        .sidebar {
+            width: 220px;
+            padding: 2rem 1.5rem;
+            position: fixed;
+            left: 100px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--highlight);
+            margin-bottom: 1.2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .name {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+            color: var(--highlight);
+            font-weight: 600;
+        }
+        
+        .title {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.2rem;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-info {
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        
+        .contact-item:hover {
+            color: var(--highlight);
+        }
+        
+        .contact-item i {
+            margin-right: 8px;
+            width: 16px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        /* 主内容区 */
+        .main-content {
+            margin-left: 300px;
+            padding: 3rem 4rem 3rem 2rem;
+            width: calc(100% - 300px);
+            max-width: 700px;
+        }
+        
+        section {
+            margin-bottom: 2.5rem;
+        }
+        
+        h1 {
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            color: var(--highlight);
+            font-weight: 600;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            margin: 2rem 0 1rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+        
+        h3 {
+            font-size: 1.1rem;
+            margin: 1.2rem 0 0.5rem;
+            color: var(--highlight);
+            font-weight: 500;
+        }
+        
+        p {
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* 技术技能列表 */
+        #skills ul {
+            margin-left: 1.5rem;
+            padding-left: 0;
+            list-style: none;
+        }
+        
+        #skills li {
+            position: relative;
+            padding-left: 1.3rem;
+            margin-bottom: 0.4rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        #skills li:before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--highlight);
+            font-size: 0.9em;
+        }
+        
+        /* 项目展示 */
+        #projects .project {
+            margin-left: 1.8rem;
+            padding-left: 1.2rem;
+            border-left: 1px solid rgba(0, 98, 163, 0.2);
+            margin-bottom: 2rem;
+        }
+        
+        .project-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.3rem;
+        }
+        
+        .project-title a {
+            color: var(--highlight);
+            text-decoration: none;
+            margin-left: 6px;
+            font-size: 0.9rem;
+        }
+        
+        .project-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .project-desc, .technologies {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .technologies:before {
+            content: "Technologies: ";
+            font-weight: 500;
+        }
+        
+        /* 移动端适配 */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding-left: 0;
+            }
+            
+            .sidebar {
+                position: static;
+                width: 100%;
+                height: auto;
+                left: auto;
+                align-items: center;
+                text-align: center;
+                padding: 2rem;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                width: 100%;
+                padding: 2rem;
+                max-width: 100%;
+            }
+            
+            #skills ul, 
+            #projects .project {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 左侧边栏 -->
+        <div class="sidebar">
+            <img src="file:///D:/ML DL Projects/Github/personal homepage/Foto.jpg" alt="Jinhong Ma" class="profile-img">
+            <h1 class="name">Jinhong Ma</h1>
+            <p class="title">Machine Learning Enthusiast</p>
+            
+            <div class="contact-info">
+                <a href="mailto:your.email@example.com" class="contact-item">
+                    <i class="fas fa-envelope"></i> Jinhong_ma@outlook.com
+                </a>
+                <a href="https://github.com/DataBlooming" target="_blank" class="contact-item">
+                   <i class="fab fa-github"></i> github.com/DataBlooming
+                
+                </a>
+            </div>
+        </div>
+        
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <h1>Machine Learning & Deep Learning Portfolio</h1>
+            
+            <section id="skills">
+                <h2>Technical Skills</h2>
+                <ul>
+                    <li>Programming languages: Python, C++, SQL</li>
+                    <li>Frameworks: Scikit-Learn, Tensorflow, FinBert, Transformer, PyTorch</li>
+                </ul>
+            </section>
+            
+            <section id="projects">
+                <h2>Applied Projects</h2>
+                
+                <div class="project">
+                    <h3>Credit Risk Modeling</h3>
+                    <div class="project-title">
+                        <i class="fas fa-link"></i>
+                        <a href="https://github.com/DataBlooming/Credit_Risk_Modeling/blob/main/Give%20Me%20Some%20Credit.ipynb" target="_blank">Project: Give Me Some Credit</a>
+                    </div>
+                    <p class="project-desc">A machine learning model to classify loan default using historical credit data.</p>
+                    <p class="technologies">XGBoost, Logistic Regression, Random Forest Classifier, Voting Classifier</p>
+                </div>
+                
+                <div class="project">
+                    <h3>Financial Forecasting with Deep Learning</h3>
+                    <div class="project-title">
+                        <i class="fas fa-link"></i>
+                        <a href="https://github.com/DataBlooming/Financial_Forecasting_Deep_Learning/blob/main/Apple%20stock%20price%20prediction%20lstm.ipynb" target="_blank">Project: Apple Stock Price Prediction (LSTM)</a>
+                    </div>
+                    <p class="project-desc">Time series forecasting using LSTM to predict Apple stock price movement.</p>
+                    <p class="technologies">Python, TensorFlow, LSTM</p>
+                    
+                    <div class="project-title">
+                        <i class="fas fa-link"></i>
+                        <a href="https://github.com/DataBlooming/Financial_Forecasting_Deep_Learning/blob/main/BTC%20price%20prediction%20lstm.ipynb" target="_blank">Project: BTC Price Prediction (LSTM)</a>
+                    </div>
+                    <p class="project-desc">Time series forecasting using LSTM for predicting Bitcoin price trends.</p>
+                    <p class="technologies">Python, TensorFlow, LSTM</p>
+                </div>
+                
+                <div class="project">
+                    <h3>Sentiment Analysis for Finance</h3>
+                    <div class="project-title">
+                        <i class="fas fa-link"></i>
+                        <a href="https://github.com/DataBlooming/Sentiment_Analysis_for_Finance/blob/main/Tesla%20tweet%20sentiment.ipynb" target="_blank">Project: Tweet Sentiment Analysis for Tesla</a>
+                    </div>
+                    <p class="project-desc">Applied sentiment scoring to Twitter data to detect investor sentiment around Tesla stock.</p>
+                    <p class="technologies">FinBERT, Transformers, Python</p>
+                    
+                    <div class="project-title">
+                        <i class="fas fa-link"></i>
+                        <a href="https://github.com/DataBlooming/Sentiment_Analysis_for_Finance/blob/main/Nvidia%20news%20sentiment.ipynb" target="_blank">Project: Nvidia News Sentiment Classifier</a>
+                    </div>
+                    <p class="project-desc">Fine-tuned FinBERT to classify financial news about Nvidia for market sentiment analysis.</p>
+                    <p class="technologies">FinBERT, Transformers, Python</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+</html>
