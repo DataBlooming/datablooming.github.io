@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            display: flex;
+            padding: 20px;
+        }
+
+        /* the left side style */
+        .sidebar {
+            width: 200px;
+            flex-shrink: 0;
+            margin-right: 40px;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar img {
+            width: 100px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .sidebar h2 {
+            margin: 10px 0;
+        }
+
+        .sidebar p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* the right side style */
+        .content {
+            flex-grow: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0073e6;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .project {
+            margin-bottom: 30px;
+        }
+
+        .project p {
+            color: #555;
+        }
+
+        /* segement */
+        hr {
+            border: 1px solid #ddd;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- the left side -->
+        <div class="sidebar">
+            <img src="yourphoto.jpg" alt="Your Photo">
+            <h2>Your Name</h2>
+            <p>📬 your_email@example.com</p>
+        </div>
+
+        <!-- the right side -->
+        <div class="content">
+            <h1>Machine Learning & Deep Learning Portfolio</h1>
+
+            <div class="project">
+                <h3>Credit Risk Modeling</h3>
+                <ul>
+                    <li><strong><a href="https://github.com/DataBlooming/Credit_Risk_Modeling/blob/main/Give%20Me%20Some%20Credit.ipynb">Project: Give Me Some Credit</a></strong></li>
+                    <p>A machine learning model to classify loan default using historical credit data.</p>
+                    <p><strong>Technologies:</strong> XGBoost, Logistic Regression, Random Forest Classifier, Voting Classifier</p>
+                </ul>
+                <hr>
+            </div>
+
+            <div class="project">
+                <h3>Financial Forecasting with Deep Learning</h3>
+                <ul>
+                    <li><strong><a href="https://github.com/DataBlooming/Financial_Forecasting_Deep_Learning/blob/main/Apple%20stock%20price%20prediction%20lstm.ipynb">Project: Apple Stock Price Prediction (LSTM)</a></strong></li>
+                    <p>Time series forecasting using LSTM to predict Apple stock price movement.</p>
+                    <p><strong>Technologies:</strong> Python, TensorFlow, LSTM</p>
+
+                    <li><strong><a href="https://github.com/DataBlooming/Financial_Forecasting_Deep_Learning/blob/main/BTC%20price%20prediction%20lstm.ipynb">Project: BTC Price Prediction (LSTM)</a></strong></li>
+                    <p>Time series forecasting using LSTM for predicting Bitcoin price trends.</p>
+                    <p><strong>Technologies:</strong> Python, TensorFlow, LSTM</p>
+                </ul>
+                <hr>
+            </div>
+
+            <div class="project">
+                <h3>Sentiment Analysis for Finance</h3>
+                <ul>
+                    <li><strong><a href="https://github.com/DataBlooming/Sentiment_Analysis_for_Finance/blob/main/Tesla%20tweet%20sentiment.ipynb">Project: Tweet Sentiment Analysis for Tesla</a></strong></li>
+                    <p>Applied sentiment scoring to Twitter data to detect investor sentiment around Tesla stock.</p>
+                    <p><strong>Technologies:</strong> FinBERT, Transformers, Python</p>
+
+                    <li><strong><a href="https://github.com/DataBlooming/Sentiment_Analysis_for_Finance/blob/main/Nvidia%20news%20sentiment.ipynb">Project: Nvidia News Sentiment Classifier</a></strong></li>
+                    <p>Fine-tuned FinBERT to classify financial news articles about Nvidia for market sentiment analysis.</p>
+                    <p><strong>Technologies:</strong> FinBERT, Transformers, Python</p>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
